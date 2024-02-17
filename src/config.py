@@ -1,7 +1,10 @@
 categories = ['neutral', 'happy', 'surprise']
+transfer_categories = ['freshapples', 'freshbanana', 'freshoranges', 'rottenapples', 'rottenbanana', 'rottenoranges']
 
 train_directory = 'train'
 test_directory = 'test'
+transfer_train_directory = 'transfer_train'
+transfer_test_directory = 'transfer_test'
 
 train_size = 5000
 original_image_size = (48, 48)

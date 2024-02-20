@@ -105,14 +105,19 @@ class UserWebcamPlayer:
         #
         # You have to use your saved model, use resized img as input, and get one classification value out of it
         # The classification value should be 0, 1, or 2 for neutral, happy or surprise respectively
+
+        # Load hyper-optimized model
         model = models.load_model("results/optimized_network.keras")
 
+        # Image resizing 
         resized_image = np.resize(img, (image_size[0], image_size[1], 3)).reshape(150, 150, 3)
         resized_image = np.expand_dims(resized_image, axis=0)
 
+        # Predict emotion using resized image
         emotion = model.predict(resized_image)
         print("emotion = ", emotion)
 
+        # Convert emotion into an integer and take the max of the emotions
         new_emotion = int(np.argmax(emotion))
         print("new_emotion = ", new_emotion)
 
